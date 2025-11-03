@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:GameAchievementsApp.ViewModels"
+             xmlns:models="clr-namespace:GameAchievementsApp.Models"
+             x:Class="GameAchievementsApp.Views.AdminProgressoPage"
+             Title="Relatório de Progresso"
+             x:DataType="vm:AdminProgressoViewModel">
+
+    <Grid RowDefinitions="Auto, *">
+
+        <Label Grid.Row="0" 
+               Text="Progresso Geral dos Jogadores" 
+               FontSize="24" 
+               FontAttributes="Bold" 
+               Padding="20"/>
+
+        <CollectionView Grid.Row="1" ItemsSource="{Binding RelatorioProgresso}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:RelatorioProgressoItem">
+                    <Frame Padding="15" Margin="10,5" CornerRadius="10" BorderColor="Gainsboro">
+                        <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto, Auto, Auto">
+
+                            <Label Grid.Row="0" Grid.Column="0" 
+                                   Text="{Binding NomeUtilizador}" 
+                                   FontSize="16" 
+                                   FontAttributes="Bold"/>
+
+                            <Label Grid.Row="1" Grid.Column="0" 
+                                   Text="{Binding ConquistaTitulo}" 
+                                   FontSize="14"/>
+
+                            <Label Grid.Row="2" Grid.Column="0" 
+                                   Text="{Binding JogoTitulo}" 
+                                   FontSize="12" 
+                                   TextColor="Gray"/>
+
+                            <Label Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" 
+                                   Text="{Binding Status}" 
+                                   VerticalOptions="Center"
+                                   FontAttributes="Italic"/>
+
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

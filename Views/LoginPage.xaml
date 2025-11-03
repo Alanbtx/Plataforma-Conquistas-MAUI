@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:GameAchievementsApp.ViewModels"
+             x:Class="GameAchievementsApp.Views.LoginPage"
+             Title="Login - Plataforma de Conquistas"
+             x:DataType="vm:LoginViewModel">
+
+    <VerticalStackLayout Padding="30,0" Spacing="20" VerticalOptions="Center">
+
+        <Label Text="Bem-vindo!" FontSize="32" HorizontalOptions="Center" FontAttributes="Bold" />
+        <Label Text="Inicia sessão para continuar" FontSize="18" HorizontalOptions="Center" />
+
+        <Entry Placeholder="Nome de Utilizador" 
+               Text="{Binding NomeUtilizador}" 
+               FontSize="18" />
+
+        <Entry Placeholder="Password" 
+               IsPassword="True" 
+               Text="{Binding Password}" 
+               FontSize="18" />
+
+        <Button Text="Login" 
+                Command="{Binding LoginCommand}" 
+                FontSize="18" 
+                Margin="0,20,0,0" />
+
+        <Button Text="Não tens conta? Regista-te" 
+                Command="{Binding GoToRegisterCommand}" 
+                FontSize="16" 
+                FontAttributes="Bold"
+                BackgroundColor="Transparent"
+                TextColor="Gray"
+                BorderWidth="0"/>
+
+    </VerticalStackLayout>
+</ContentPage>
